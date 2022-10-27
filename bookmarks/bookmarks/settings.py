@@ -25,19 +25,21 @@ SECRET_KEY = 'django-insecure-7dlb33mx%g$#*yqc22x*-xb#9wi9kk%7d!qs(k5cw&3)o7ukqw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =  ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'account.apps.AccountConfig',
+    'account.apps.AccountConfig',#so i can use my app login
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -131,4 +133,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 AUTHENTICATION_BACKENDS = [
 'django.contrib.auth.backends.ModelBackend',
 'account.authentication.EmailAuthBackend',
+'social_core.backends.facebook.FacebookOAuth2',
 ]
